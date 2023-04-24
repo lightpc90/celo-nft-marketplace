@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAccount, useContract, useProvider, erc721ABI } from "wagmi";
-import styles from "/src/styles/Listing.module.css"
+import styles from "/src/styles/Listing.module.css";
 import { formatEther } from "ethers/lib/utils";
 
 export default function Listing(props) {

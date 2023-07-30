@@ -1,4 +1,5 @@
 .container {
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     padding: 5rem;
@@ -8,6 +9,7 @@
     border: 1px solid black;
     background-color: aliceblue;
     width: 50%;
+    max-width: 500px;
     margin-top: 5%;
   }
   
@@ -19,4 +21,10 @@
   
   .container button:first-of-type {
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .container {
+      width: 100%;
+    }
   }

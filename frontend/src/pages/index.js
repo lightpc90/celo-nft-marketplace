@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "/components/Navbar";
+import Footer from "../../components/Footer";
 import Listing from "/components/Listing";
 import { createClient, fetchExchange} from "urql";
 import styles from "/src/styles/Home.module.css";
@@ -39,14 +40,16 @@ export default function Home() {
 
     // Send the query to the subgraph GraphQL API, and get the response
     const response = await urqlClient.query(listingsQuery).toPromise();
-    const listingEntities = response.data.listingEntities;
+    if (response){
+      const listingEntities = response.data?.listingEntities;
+      // Filter out active listings i.e. ones which haven't been sold yet
+      const activeListings = listingEntities?.filter((l) => l.buyer === null);
 
-    // Filter out active listings i.e. ones which haven't been sold yet
-    const activeListings = listingEntities.filter((l) => l.buyer === null);
-
-    // Update state variables
-    setListings(activeListings);
+      // Update state variables
+      setListings(activeListings); 
+    }  
     setLoading(false);
+
   }
 
   useEffect(() => {
@@ -61,11 +64,14 @@ export default function Home() {
       {/* Add Navbar to homepage */}
       <Navbar />
 
-      {/* Show loading status if query hasn't responded yet */}
-      {loading && isConnected && <span>Loading...</span>}
+
 
       {/* Render the listings */}
       <div className={styles.container}>
+
+      {/* Show loading status if query hasn't responded yet */}
+      {loading && isConnected && <span>Loading...</span>}
+
         {!loading &&
           listings &&
           listings.map((listing) => {
@@ -83,12 +89,14 @@ export default function Home() {
               </Link>
             );
           })}
-      </div>
 
-      {/* Show "No listings found" if query returned empty */}
-      {!loading && listings && listings.length === 0 && (
-        <span>No listings found</span>
+           {/* Show "No listings found" if query returned empty */}
+        {!loading && listings && listings.length === 0 && (
+          <span>No listings found</span>
       )}
+      </div>
+      <Footer/>
+     
     </>
   );
 }

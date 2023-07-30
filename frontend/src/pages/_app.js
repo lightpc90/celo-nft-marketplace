@@ -40,6 +40,7 @@ const { chains, provider } = configureChains(
 
 const { connectors } = getDefaultWallets({
   appName: "Celo NFT Marketplace",
+  projectId: "e1db0104cb7e5858a481e70a5a65e236",
   chains,
 });
 

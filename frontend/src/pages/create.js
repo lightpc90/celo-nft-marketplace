@@ -1,12 +1,14 @@
 import { Contract } from "ethers";
 import { isAddress, parseEther } from "ethers/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
-import { useSigner, erc721ABI } from "wagmi";
+import { useState, useEffect } from "react";
+import { useSigner, erc721ABI, useWallet  } from "wagmi";
 import MarketplaceABI from "/abis/NFTMarketplace.json";
 import Navbar from "/components/Navbar";
+import Footer from "../../components/Footer";
 import styles from "/src/styles/Create.module.css";
 import { MARKETPLACE_ADDRESS } from "/constants";
+import { Container, Spacer } from "@nextui-org/react";
 
 export default function Create() {
   // State variables to contain information about the NFT being sold
@@ -16,8 +18,12 @@ export default function Create() {
   const [loading, setLoading] = useState(false);
   const [showListingLink, setShowListingLink] = useState(false);
 
+
+
   // Get signer from wagmi
   const { data: signer } = useSigner();
+
+ 
 
   // Main function to be called when 'Create' button is clicked
   async function handleCreateListing() {
@@ -139,6 +145,8 @@ export default function Create() {
           </Link>
         )}
       </div>
+      <Spacer/>
+      <Footer/>
     </>
   );
 }

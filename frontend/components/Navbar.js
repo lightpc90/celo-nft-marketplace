@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import styles from "/src/styles/Navbar.module.css";
+import styles from "../src/styles/Navbar.module.css";
 
 export default function Navbar() {
   return (

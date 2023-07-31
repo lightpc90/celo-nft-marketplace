@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Navbar from "/components/Navbar";
+import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import Listing from "/components/Listing";
+import Listing from "../../components/Listing";
 import { createClient, fetchExchange} from "urql";
-import styles from "/src/styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { SUBGRAPH_URL } from "/constants";
+import { SUBGRAPH_URL } from "../../constants";
 import { useAccount } from "wagmi";
 
 export default function Home() {

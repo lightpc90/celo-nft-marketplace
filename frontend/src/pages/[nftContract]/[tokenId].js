@@ -4,9 +4,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { createClient, fetchExchange} from "urql";
 import { useContract, useSigner, erc721ABI } from "wagmi";
-import MarketplaceABI from "../../abis/NFTMarketplace.json";
-import Navbar from "../../components/Navbar";
-import { MARKETPLACE_ADDRESS, SUBGRAPH_URL } from "../../constants";
+import MarketplaceABI from "../../../abis/NFTMarketplace.json";
+import Navbar from "../../../components/Navbar";
+import { MARKETPLACE_ADDRESS, SUBGRAPH_URL } from "../../../constants";
 import styles from "../../src/styles/Details.module.css";
 
 export default function NFTDetails() {

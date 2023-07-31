@@ -7,7 +7,7 @@ import { useContract, useSigner, erc721ABI } from "wagmi";
 import MarketplaceABI from "../../../abis/NFTMarketplace.json";
 import Navbar from "../../../components/Navbar";
 import { MARKETPLACE_ADDRESS, SUBGRAPH_URL } from "../../../constants";
-import styles from "../../src/styles/Details.module.css";
+import styles from "../../styles/Details.module.css";
 
 export default function NFTDetails() {
   // Extract NFT contract address and Token ID from URL

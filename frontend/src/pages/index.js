@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { SUBGRAPH_URL } from "../../constants";
 import { useAccount } from "wagmi";
+import { Container } from "@nextui-org/react";
 
 export default function Home() {
   // State variables to contain active listings and signify a loading state
@@ -64,11 +65,11 @@ export default function Home() {
       {/* Add Navbar to homepage */}
       <Navbar />
 
-
+      <Container css={{color: '$blue800', fontWeight: 'bold'}} align='center'>Welcome to 24Codelabz NFT Marketplace -- connect your Celo alfajores (testnet) wallet to list your NFTs</Container>
 
       {/* Render the listings */}
       <div className={styles.container}>
-
+        
       {/* Show loading status if query hasn't responded yet */}
       {loading && isConnected && <span>Loading...</span>}
 

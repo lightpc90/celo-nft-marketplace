@@ -134,7 +134,7 @@ export default function Create() {
           }}
         />
         {/* Button to create the listing */}
-        <button onClick={handleCreateListing} disabled={loading}>
+        <button onPress={handleCreateListing} disabled={loading}>
           {loading ? "Loading..." : "Create"}
         </button>
 
